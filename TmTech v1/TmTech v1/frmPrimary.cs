@@ -1,0 +1,250 @@
+﻿
+using ModernUI.Controls;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using TmTech_v1.Model;
+using TmTech_v1.Utility;
+using FlatMessageBox;
+using TmTech_v1.View;
+using ModernUI;
+using TmTech_v1.View.Customer;
+using TmTech_v1.View.Custormers;
+namespace TmTech_v1
+{
+    public partial class frmPrimary : MaterialForm
+    {
+        IDbConnection db = DbTmTech.DbCon;
+        private readonly ModernUIManager materialSkinManager;
+        public List<UserTheme> lstheme = UserTheme.generateTheme();
+        //private TabControl mainTab;
+        public frmPrimary()
+        {
+            InitializeComponent();
+            materialSkinManager = ModernUIManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            if (materialTabSelector1.BaseTabControl.TabCount == 0)
+            {
+                materialTabSelector1.Visible = false;
+                mainTabCtrl.Visible = false;
+            }
+
+        }
+
+        private void frmPrimary_Load(object sender, EventArgs e)
+        {
+            if (MaximizeOption == MaximizeOptions.NotCoverTaskBar)
+            {
+                this.Bounds = Screen.PrimaryScreen.WorkingArea;
+                this.TopMost = false;
+            }
+            ChangeTheme(UserManagement.UserSession.ThemeName);
+            if (materialSkinManager.ColorScheme.PrimaryColor == System.Drawing.Color.FromArgb(242, 244, 248))
+            {
+                menuStrip1.ForeColor = System.Drawing.Color.Black;
+            }
+            else
+            {
+                menuStrip1.ForeColor = System.Drawing.Color.White;
+            }
+        }
+        public void SetEnable(bool isEnable)
+        {
+            this.Enabled = isEnable;
+        }
+        private void frmPrimary_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private string themeName = "Default";
+        public void ChangeTheme(string themename)
+        {
+            UserTheme theme = lstheme.Find(p => p.Name == themename);
+            if (theme != null)
+            {
+                try
+                {
+
+                    System.Drawing.Color primary = ColorTranslator.FromHtml(theme.PrimaryColor);
+                    System.Drawing.Color titlebar = ColorTranslator.FromHtml(theme.TitleBarColor);
+                    System.Drawing.Color lightPrimary = ColorTranslator.FromHtml(theme.LightPrimary);
+                    System.Drawing.Color textShade = ColorTranslator.FromHtml(theme.TextColor);
+                    System.Drawing.Color accent = ColorTranslator.FromHtml(theme.Accent);
+                    materialSkinManager.ColorScheme = new ColorScheme(primary, titlebar, lightPrimary, accent, textShade);
+                    themeName = themename;
+                }
+                catch
+                {
+                    return;
+                }
+            }
+        }
+        public void SaveTheme()
+        {
+            UserSetting setting = new UserSetting();
+            setting.UserName = UserManagement.UserSession.UserName;
+            setting.ThemeName = themeName;
+            UtilityFunction.WriteTheme(setting);
+        }
+
+
+
+        private void frmPrimary_MaximumSizeChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmPrimary_SizeChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mainTabCtrl_ControlAdded(object sender, ControlEventArgs e)
+        {
+            if (mainTabCtrl.TabCount > 0)
+            {
+                mainTabCtrl.Visible = true;
+                materialTabSelector1.Visible = true;
+            }
+        }
+
+        private void mainTabCtrl_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            if (materialTabSelector1.BaseTabControl.TabCount == 1)
+            {
+                materialTabSelector1.Visible = false;
+                mainTabCtrl.Visible = false;
+            }
+        }
+
+
+        private delegate void delgloadData(bool viewPermission);
+        private void itemPOList_Click(object sender, EventArgs e)
+        {
+            TabPage tabDdh = new TabPage("Đơn đặt hàng");
+            tabDdh.Tag = 1;
+            mainTabCtrl.TabPages.Add(tabDdh);
+            mainTabCtrl.SelectedTab = tabDdh;
+        }
+        private void CallPage(string tableName, string tabPageName, UserControl frmView, delgloadData delgLoad)
+        {
+            if (UserManagement.AllowViewAll(tableName) == false && UserManagement.AllowViewOwn(tableName) == false)
+            {
+                FlatMsgBox.Show("Bạn không có quyền ở mục này");
+                return;
+            }
+            bool isLoadAll = false;
+            if (UserManagement.AllowViewAll(tableName) == true)
+                isLoadAll = true;
+            delgLoad(isLoadAll);
+            TabPage tab = new TabPage(tabPageName);
+            tab.Name = tableName;
+            tab.Controls.Add(frmView);
+            mainTabCtrl.TabPages.Add(tab);
+            mainTabCtrl.SelectedTab = tab;
+        }
+        private void itemUsers_Click(object sender, EventArgs e)
+        {
+            //if (UserManagement.AllowViewAll("Users") == false && UserManagement.AllowViewOwn("Users") == false)
+            //{
+            //    FlatMsgBox.Show("Bạn không có quyền ở mục này");
+            //    return;
+            //}
+            //bool isLoadAll = false;
+            //if (UserManagement.AllowViewAll("Users") == true)
+            //    isLoadAll = true;
+            frmUsersView frmView = new frmUsersView();
+            //frmViewUser.isLoadaAll = isLoadAll;
+            delgloadData delgLoadUser = new delgloadData(frmView.LoadUser);
+            //delgLoadUser();
+            //TabPage tabUser = new TabPage("Người dùng");
+            //tabUser.Name = "Users";
+            //tabUser.Controls.Add(frmViewUser);
+            //mainTabCtrl.TabPages.Add(tabUser);
+            CallPage("Users", "Người dùng", frmView, delgLoadUser);
+        }
+
+        private void itemUserGroup_Click(object sender, EventArgs e)
+        {
+            TmTech_v1.View.frmUGroupView frmView = new frmUGroupView();
+            delgloadData delgLoad = new delgloadData(frmView.LoadGrid);
+            CallPage("UserGroup", "Nhóm người dùng", frmView, delgLoad);
+        }
+
+        private void itemCategory_Click(object sender, EventArgs e)
+        {
+            TmTech_v1.View.Lstcategory frmView = new Lstcategory();
+            delgloadData delgLoad = new delgloadData(frmView.LoadGrid);
+            CallPage("Category", "Nhóm sản phẩm", frmView, delgLoad);
+        }
+
+        private void itemProduct_Click(object sender, EventArgs e)
+        {
+            TmTech_v1.View.frmProductView frmView = new View.frmProductView();
+            delgloadData delgLoad = new delgloadData(frmView.LoadGrid);
+            CallPage("Product", "Sản phẩm", frmView, delgLoad);
+        }
+
+        private void itemThemeSetting_Click(object sender, EventArgs e)
+        {
+            frmThemeSetting frmTheme = new frmThemeSetting();
+            frmTheme.Show();
+        }
+
+        private void itemProductPrice_Click(object sender, EventArgs e)
+        {
+            TmTech_v1.View.frmProductPriceView frmView = new View.frmProductPriceView();
+            delgloadData delgLoad = new delgloadData(frmView.LoadGrid);
+            CallPage("ProductPrice", "Cập nhật giá", frmView, delgLoad);
+        }
+
+        private void itemSetPermission_Click(object sender, EventArgs e)
+        {
+            TmTech_v1.View.frmSetPermission frmView = new TmTech_v1.View.frmSetPermission();
+            delgloadData delgLoad = new delgloadData(frmView.LoadGrid);
+            CallPage("Permissions", "Đối tượng", frmView, delgLoad);
+        }
+
+        private void côngTyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCustormer frmcustomer = new frmCustormer();
+          //  frmCompany frmCategoryView = new frmCompany();
+            //frmCategoryView.isLoadAll = isLoadAll;
+          //  delgloadData delgLoad = new delgloadData(frmCategoryView.loadCustormer);
+            //delgLoad();
+            //TabPage tabCategory = new TabPage("Nhóm sản phẩm");
+            //tabCategory.Name = "Category";
+            //tabCategory.Controls.Add(frmCategoryView);
+            //mainTabCtrl.TabPages.Add(tabCategory);
+            TabPage tab = new TabPage("demo1");
+           
+            tab.Controls.Add(frmcustomer);
+            frmcustomer.Dock = DockStyle.Fill;
+            mainTabCtrl.TabPages.Add(tab);
+            mainTabCtrl.SelectedTab = tab;           
+
+
+        }
+
+        private void itemDepartment_Click(object sender, EventArgs e)
+        {
+            TmTech_v1.View.frmDepartmentView frmView = new TmTech_v1.View.frmDepartmentView();
+            delgloadData delgLoad = new delgloadData(frmView.LoadGrid);
+            CallPage("Department", "Phòng ban", frmView, delgLoad);
+        }
+
+        private void itemStaff_Click(object sender, EventArgs e)
+        {
+            TmTech_v1.View.frmStaffView frmView = new TmTech_v1.View.frmStaffView();
+            delgloadData delgLoad = new delgloadData(frmView.LoadGrid);
+            CallPage("Staff", "Nhân viên", frmView, delgLoad);
+        }
+    }
+}

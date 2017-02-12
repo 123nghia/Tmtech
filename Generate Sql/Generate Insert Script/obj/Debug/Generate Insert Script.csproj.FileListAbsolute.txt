@@ -1,0 +1,28 @@
+E:\Project\Svn\Utility\Generate Sql\Generate Insert Script\bin\Debug\Generate Insert Script.exe.config
+E:\Project\Svn\Utility\Generate Sql\Generate Insert Script\obj\Debug\Generate Insert Script.csprojResolveAssemblyReference.cache
+E:\Project\Svn\Utility\Generate Sql\Generate Insert Script\obj\Debug\Generate_Insert_Script.frmConnect.resources
+E:\Project\Svn\Utility\Generate Sql\Generate Insert Script\obj\Debug\Generate_Insert_Script.frmPrimary.resources
+E:\Project\Svn\Utility\Generate Sql\Generate Insert Script\obj\Debug\Generate_Insert_Script.Properties.Resources.resources
+E:\Project\Svn\Utility\Generate Sql\Generate Insert Script\obj\Debug\Generate Insert Script.csproj.GenerateResource.Cache
+E:\Project\Svn\Utility\Generate Sql\Generate Insert Script\bin\Debug\Generate Insert Script.exe
+E:\Project\Svn\Utility\Generate Sql\Generate Insert Script\bin\Debug\Generate Insert Script.pdb
+E:\Project\Svn\Utility\Generate Sql\Generate Insert Script\bin\Debug\Dapper.dll
+E:\Project\Svn\Utility\Generate Sql\Generate Insert Script\bin\Debug\FlatMessageBox.dll
+E:\Project\Svn\Utility\Generate Sql\Generate Insert Script\bin\Debug\Material.dll
+E:\Project\Svn\Utility\Generate Sql\Generate Insert Script\bin\Debug\ModernUI.Design.dll
+E:\Project\Svn\Utility\Generate Sql\Generate Insert Script\bin\Debug\ModernUI.dll
+E:\Project\Svn\Utility\Generate Sql\Generate Insert Script\bin\Debug\ModernUI.Fonts.dll
+E:\Project\Svn\Utility\Generate Sql\Generate Insert Script\bin\Debug\Newtonsoft.Json.dll
+E:\Project\Svn\Utility\Generate Sql\Generate Insert Script\obj\Debug\Generate Insert Script.exe
+E:\Project\Svn\Utility\Generate Sql\Generate Insert Script\obj\Debug\Generate Insert Script.pdb
+C:\Users\DELL\Desktop\Generate Sql\Generate Insert Script\bin\Debug\Generate Insert Script.exe.config
+C:\Users\DELL\Desktop\Generate Sql\Generate Insert Script\obj\Debug\Generate Insert Script.exe
+C:\Users\DELL\Desktop\Generate Sql\Generate Insert Script\obj\Debug\Generate Insert Script.pdb
+C:\Users\DELL\Desktop\Generate Sql\Generate Insert Script\obj\Debug\Generate Insert Script.csprojResolveAssemblyReference.cache
+C:\Users\DELL\Desktop\Generate Sql\Generate Insert Script\obj\Debug\Generate_Insert_Script.frmConnect.resources
+C:\Users\DELL\Desktop\Generate Sql\Generate Insert Script\obj\Debug\Generate_Insert_Script.frmPrimary.resources
+C:\Users\DELL\Desktop\Generate Sql\Generate Insert Script\obj\Debug\Generate_Insert_Script.Properties.Resources.resources
+C:\Users\DELL\Desktop\Generate Sql\Generate Insert Script\obj\Debug\Generate Insert Script.csproj.GenerateResource.Cache
+C:\Users\DELL\Desktop\Generate Sql\Generate Insert Script\bin\Debug\Generate Insert Script.exe
+C:\Users\DELL\Desktop\Generate Sql\Generate Insert Script\bin\Debug\Generate Insert Script.pdb
+C:\Users\DELL\Desktop\Generate Sql\Generate Insert Script\bin\Debug\Newtonsoft.Json.dll
