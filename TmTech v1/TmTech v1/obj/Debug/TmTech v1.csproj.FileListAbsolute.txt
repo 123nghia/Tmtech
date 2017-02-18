@@ -1,0 +1,43 @@
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech_v1.frmLogin.resources
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech_v1.frmPrimary.resources
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech_v1.frmSetupDb.resources
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech_v1.MesgBox.resources
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech_v1.Properties.Resources.resources
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech_v1.ToolBoxCS.ComboboxCS.resources
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech_v1.View.frmCreateCategory.resources
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech_v1.View.Lstcategory.resources
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech_v1.View.Customer.frmCreateCompany.resources
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech_v1.View.Custormers.frmCustormer.resources
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech_v1.View.frmDepartmentView.resources
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech_v1.View.frmDepartmentDetail.resources
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech_v1.View.frmProductPriceDetail.resources
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech_v1.View.Customer.frmCompany.resources
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech_v1.View.Customer.frmEditCompany.resources
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech_v1.View.frmProductPriceView.resources
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech_v1.View.frmProductView.resources
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech_v1.View.frmCreateProduct.resources
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech_v1.View.frmStaffView.resources
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech_v1.View.Staff.FrmStaff.resources
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech_v1.View.Staff.InformationStaff.resources
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech_v1.View.frmThemeSetting.resources
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech_v1.View.frmCreateUGroup.resources
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech_v1.View.frmUGroupView.resources
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech_v1.View.frmCreateUser.resources
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech_v1.View.frmEditUser.resources
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech_v1.View.frmSetPermission.resources
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech_v1.View.frmUsersView.resources
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech v1.csproj.GenerateResource.Cache
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech v1.exe.licenses
+D:\Anh Tuyen\TmTech v1\TmTech v1\bin\Debug\TmTech v1.exe.config
+D:\Anh Tuyen\TmTech v1\TmTech v1\bin\Debug\TmTech v1.exe
+D:\Anh Tuyen\TmTech v1\TmTech v1\bin\Debug\TmTech v1.pdb
+D:\Anh Tuyen\TmTech v1\TmTech v1\bin\Debug\Newtonsoft.Json.dll
+D:\Anh Tuyen\TmTech v1\TmTech v1\bin\Debug\System.Linq.Dynamic.dll
+D:\Anh Tuyen\TmTech v1\TmTech v1\bin\Debug\Dapper.xml
+D:\Anh Tuyen\TmTech v1\TmTech v1\bin\Debug\Newtonsoft.Json.xml
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech v1.exe
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech v1.pdb
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech v1.csprojResolveAssemblyReference.cache
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech_v1.View.UCcontrol.StaftProfile.resources
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech_v1.View.frmProduct.resources
+D:\Anh Tuyen\TmTech v1\TmTech v1\obj\Debug\TmTech_v1.Form1.resources
