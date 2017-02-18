@@ -1,0 +1,63 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+namespace TmTech_v1.ToolBoxCS
+{
+public    class NumberInterGer :TextBox
+    {
+    public int MinLenghtTB { get  ; set; }
+    public int MaxlenghtTB { get{return this.MaxLength;} set{this.MaxLength =value;} }
+    public Boolean IsReadOnly { get{return this.ReadOnly;} set{this.ReadOnly=value;} }
+    
+   
+
+    protected override void OnKeyPress(KeyPressEventArgs e)
+{
+       
+ 	 if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+    {
+            e.Handled = true;
+    }
+    
+}
+    public int? ValueText
+    {
+        get
+        {
+
+            try
+            {
+                return int.Parse(this.Text);
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
+    }
+   
+    protected override void OnLostFocus(EventArgs e)
+    {
+        if (  this.MinLenghtTB > 0)
+        {
+            if(this.TextLength <=this.MinLenghtTB)
+            {
+                this.Focus();
+                
+                
+            }
+        }
+
+    }
+    public override void ResetText()
+    {
+       
+        base.ResetText();
+    }
+
+    }
+}

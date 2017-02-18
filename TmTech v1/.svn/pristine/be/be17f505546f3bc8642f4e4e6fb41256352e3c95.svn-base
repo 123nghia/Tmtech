@@ -1,0 +1,156 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using TmTech_v1.Interface;
+using TmTech_v1.Model;
+using TmTech_v1.Repository;
+
+namespace TmTech_v1.View.Custormers
+{
+    public partial class frmCustormer :UserControl
+    {
+        public frmCustormer()
+        {
+            InitializeComponent();
+            
+        }
+
+        private Company _company = null;
+        private Deputy _Deputy = null;
+             
+        Boolean iscreate = false;
+        Boolean isupdate = false;
+       
+     
+        void ResetCreate()
+        {
+            if( iscreate)
+            {
+                UtilityFunction.ResetForm(pnlInformation);
+            }
+        }
+
+        private bool CreateCompany(TmTech_v1.Model.Company company)
+        {
+            if (company == null) return false;
+            try
+            {
+                using (IUnitOfWork uow = new UnitOfWork())
+                {
+                    uow.CompanyRepository.Add(company);
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+        }
+        private bool CreateDeputy(TmTech_v1.Model.Deputy deputy)
+        {
+            if ( deputy == null) return false;
+            try
+            {
+                using (IUnitOfWork uow = new UnitOfWork())
+                {
+                    uow.DeputyRepository.Add(deputy);
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+        }
+        private void btnCreateAccount_Click(object sender, EventArgs e)
+        {
+            
+            iscreate = true;
+            if (btnCreateAccount.Text == "Create Account")
+            {
+                btnCreateAccount.Text = "Save";
+                btnUpdate.Text = "Cancel";
+                ResetCreate();
+                txtCompanyName.Focus();
+            }
+            else
+            {
+
+
+                if( txtCompanyName.Text == string.Empty )
+                {
+                    FlatMessageBox.FlatMsgBox.Show("không được trể trống");
+                    txtCompanyName.Focus();
+                    return;
+                }
+                else if( string.IsNullOrWhiteSpace(txtTaxCode.Text))
+                {
+                    FlatMessageBox.FlatMsgBox.Show("không được trể trống");
+                    txtTaxCode.Focus();
+                    return;
+                }
+                else if (string.IsNullOrWhiteSpace(txtTaxCode.Text))
+                {
+                    FlatMessageBox.FlatMsgBox.Show("không được trể trống");
+                    txtTaxCode.Focus();
+                    return;
+                }
+
+               
+               
+                Boolean _sex = false;
+                if (cbSex.SelectedIndex == 1)
+                    _sex = true;
+                Company objinsert = new Company
+                {
+                    Taxcode = txtTaxCode.Text,
+                    Name = txtNameContact.Text,
+                    Address = txtAddree.Text,
+                    Phone1 = txtPhone.Text,
+                    SwiftCode = txtSwich.Text,
+                    Employee = ProfileStaff.Idstaff,
+                    Email = txtEmail.Text,
+                    Phone2 = txtPhone.Text,
+                    NoBrank =txtNoBrach.ValueText,
+                    NoStaff = txtStaft.ValueText,
+                    TagetValue = txtTargertValue.ValueText,
+              
+                    Website  = txtWebsite.Text,
+                    Note  =   txtNote.Text 
+                };
+
+                Deputy objdeputy = new Deputy
+                {
+                    Name = txtNameContact.Text, 
+                    Email = txtEmail.Text,
+                    Phone1 = txtPhone.Text,
+                    StaffId = txtStaft.ValueText
+                };
+
+                if(objdeputy!=null && objinsert!=null)
+                {
+                    CreateCompany(objinsert);
+                    CreateDeputy(objdeputy);
+                }
+
+
+
+
+
+            }
+           
+            
+        }
+
+      
+     
+    }
+}
